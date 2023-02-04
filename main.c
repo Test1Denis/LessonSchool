@@ -73,13 +73,11 @@ void quickSort(int* ar, int size) {
 			left++;
 		}
 	}
-	if (size > 2) {
-		if (left > 0) {
-			quickSort(&ar[0], left);
-		}
+	if (right > 0) {
+		quickSort(&ar[0], right + 1);
 	}
 
-	if (right < size - 1) {
+	if (left < size) {
 		quickSort(&ar[left], size - left);
 	}
 }
