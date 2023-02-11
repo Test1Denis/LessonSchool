@@ -1,4 +1,6 @@
 #include <iostream>
+#include "mergeSort.hpp"
+#include "arrayFunc.h"
 
 int binSearch(int* ar, int size, int el) {
 	if (ar[size >> 1] == el) {
@@ -21,6 +23,7 @@ int binSearch(int* ar, int size, int el) {
 }
 
 void test_binSearch()  {
+	std::cout << "\t---" << __func__ << "---" << std::endl;
 	{	//test 1
 		int ar[] = {1,2,3,4,5,6,7,8,9,10};
 		if (binSearch(ar, 10, 1) != 0) {
@@ -45,6 +48,8 @@ void test_binSearch()  {
 			std::cout << "test2 2 PASSED" << std::endl;
 		}
 	}
+
+	std::cout << "--------------" << std::endl;
 }
 
 void swap(int& a, int& b) {
@@ -82,7 +87,24 @@ void quickSort(int* ar, int size) {
 	}
 }
 
-int main() {
+void test_merge() {
+	std::cout << "\t---" << __func__ << "---" << std::endl;
+	int countTest = 1;
+	{
+		std::cout << "test " << countTest++ << std::endl;
+		const int SIZE_AR = 10;
+		int ar[SIZE_AR] = {1, 2, 1, 2, 0, 0, -9, 90, -11};
+		showEl(ar, SIZE_AR);
+		mergeSort(ar, SIZE_AR);
+		showEl(ar, SIZE_AR);
+	}
+
+	std::cout << "-------------" << std::endl;
+}
+
+void test_quickSort() {
+
+	std::cout << "\t----" << __func__ << "----" << std::endl;
 	int ar_test[] = {5,3,2,8,99,23,11,6,0,7};
 	for (int i = 0; i < 10; i++) {
 		std::cout << ar_test[i] << " "; //std::endl;
@@ -94,6 +116,12 @@ int main() {
 	}
 
 	std::cout << std::endl;
+	std::cout << "------------" << std::endl;
+}
+
+int main() {
+	test_merge();
+	test_quickSort();
 
 
 	test_binSearch();
