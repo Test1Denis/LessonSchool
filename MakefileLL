@@ -2,10 +2,10 @@ all : linkedList.o main.o
 	g++ linkedList.o main.o -g
 
 linkedList.o : linkedList.c
-	g++ -c linkedList.c
+	g++ -c linkedList.c -g
 
 main.o : main.c
-	g++ -c main.c
+	g++ -c main.c -g 
 
 clean :
 	rm -rf *.o a.out

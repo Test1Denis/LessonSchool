@@ -13,7 +13,7 @@ struct Node {
 	Node() {
 		next = nullptr;
 	}
-	Node(const struct Data& temp) {
+	Node(const struct Data& temp) : Node() {
 		d = temp;
 	}
 	~Node() {
@@ -31,6 +31,7 @@ class LinkedList {
 		LinkedList();
 		~LinkedList();
 		void push_back(const struct Data&);
+		Data pop_back();
 
 };
 

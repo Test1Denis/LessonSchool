@@ -1,40 +1,56 @@
 #include <iostream>
 #include <fstream>
+#include "linkedList.h"
+
+void test_LL() {
+	int num_test = 0;
+	{
+		std::cout << "test - " << ++num_test << std::endl;
+		LinkedList *test = new LinkedList();
+
+		for (int i = 0; i < 10; i++) {
+			test->push_back(Data(i + 1));
+		}
+
+		for (int i = 0; i < 20; i++) {
+			Data temp = test->pop_back();
+			std::cout << temp.val << " ";
+		}
+		std::cout << std::endl;
+		std::cout << "test - " << num_test << " is OK" << std::endl; 
+		delete test;
+	}
+	{
+		std::cout << "test - " << ++num_test << std::endl;
+		LinkedList *test = new LinkedList();
+
+		for (int i = 0; i < 29; i++) {
+			test->push_back(Data(i + 1));
+		}
+
+		for (int i = 0; i < 20; i++) {
+			Data temp = test->pop_back();
+			std::cout << temp.val << " ";
+		}
+
+		for (int i = 0; i < 5; i++) {
+			test->push_back(Data(i*20 + 1));
+		}
+
+		for (int i = 0; i < 20; i++) {
+			Data temp = test->pop_back();
+			std::cout << temp.val << " ";
+		}
+		std::cout << std::endl;
+		std::cout << "test - " << num_test << " is OK" << std::endl; 
+		delete test;
+	}
+}
+
 
 int main() {
-	int* ar = nullptr;
-	delete [] ar;
 
-	return 0;
-
-	FILE* f;
-	f = fopen("test.txt", "w");
-
-	int tempNum = 10;
-	fprintf(f, "%dfd%xf12\t%.6X \t %.5d  fksdjfal 10 43\n", 10, tempNum, tempNum, 20);
-	fclose(f);
-
-	f = fopen("test.txt", "r");
-	if (f == nullptr) {
-		std::cerr << "file is not opened!!!" << std::endl;
-	}
-
-	char buf[256];
-	while(fread(buf, 1, 1, f)) {
-		std::cout << buf[0];
-	}
-	std::cout << std::endl;
-
-	fclose(f);
-
-	f = fopen("test.txt", "r");
-
-	int temp_dec, temp_hex;
-	int count = fscanf(f, "%dfd%x\t", &temp_dec, &temp_hex);
-	std::cout << temp_dec << " " << std::hex << temp_hex << std::endl;
-
-	fclose(f);
-
+	test_LL();
 
 
 	return 0;
