@@ -1,0 +1,14 @@
+all : linkedList.o main.o
+	g++ linkedList.o main.o -g
+
+linkedList.o : linkedList.c
+	g++ -c linkedList.c
+
+main.o : main.c
+	g++ -c main.c
+
+clean :
+	rm -rf *.o a.out
+
+
+

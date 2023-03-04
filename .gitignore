@@ -1,4 +1,6 @@
 *.o
+base_data/
+*.txt
 a.out
 *.out
 *.exe
