@@ -1,57 +1,37 @@
 #include <iostream>
 #include <fstream>
-#include "linkedList.h"
 
-void test_LL() {
-	int num_test = 0;
-	{
-		std::cout << "test - " << ++num_test << std::endl;
-		LinkedList *test = new LinkedList();
+//#define TEST
+//#undef TEST
 
-		for (int i = 0; i < 10; i++) {
-			test->push_back(Data(i + 1));
-		}
+#define A(n) (std::cout << #n << " - " << n  << std::endl)
+#define SetBit(numBit)	(1 << numBit)
 
-		for (int i = 0; i < 20; i++) {
-			Data temp = test->pop_back();
-			std::cout << temp.val << " ";
-		}
-		std::cout << std::endl;
-		std::cout << "test - " << num_test << " is OK" << std::endl; 
-		delete test;
-	}
-	{
-		std::cout << "test - " << ++num_test << std::endl;
-		LinkedList *test = new LinkedList();
+#define Mult(a, b) ((a) * (b))
 
-		for (int i = 0; i < 29; i++) {
-			test->push_back(Data(i + 1));
-		}
+struct Data {
+	int k;
+	int k1;
+	Data() : k(100), k1(500) {}
+};
 
-		for (int i = 0; i < 20; i++) {
-			Data temp = test->pop_back();
-			std::cout << temp.val << " ";
-		}
-
-		for (int i = 0; i < 5; i++) {
-			test->push_back(Data(i*20 + 1));
-		}
-
-		for (int i = 0; i < 20; i++) {
-			Data temp = test->pop_back();
-			std::cout << temp.val << " ";
-		}
-		std::cout << std::endl;
-		std::cout << "test - " << num_test << " is OK" << std::endl; 
-		delete test;
-	}
+std::ostream& operator<<(std::ostream& os, const Data& t) {
+	os << "{" << t.k << "," << t.k1 << "}";
+	return os;
 }
 
-
 int main() {
+	std::cout << std::hex << SetBit(31) << " " << SetBit(12) << std::endl;
+	std::cout << std::dec << Mult(10,10) << " " << Mult(10 + 10, 2) << std::endl;
 
-	test_LL();
+	A(100);
+	int k = 101;
+	A(k);
 
+//	std::cout << Data() << std::endl;
+
+	Data temp;
+	A(temp);
 
 	return 0;
 }
